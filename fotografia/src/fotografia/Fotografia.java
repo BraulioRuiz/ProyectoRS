@@ -5,17 +5,36 @@
  */
 package fotografia;
 
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 /**
  *
  * @author ayax9
  */
-public class Fotografia {
+public class Fotografia extends Application{
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+
+     @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent parent_login = FXMLLoader.load(getClass().getResource("/Vista/MenuAdmin.fxml"));
+        Scene login_scene = new Scene(parent_login);
+        primaryStage.setScene(login_scene);
+       // primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.show();
     }
+    
+    public static void main(String[]args){ 
+        launch(args);
+    }
+    
     
 }
