@@ -7,14 +7,22 @@ package Controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
  * @author ayax9
  */
-public class ExclusivaReportaje implements Initializable {
+public class ReportajesController implements Initializable {
+
+    @FXML
+    private TextField labelTituloReportaje;
+    public static AnchorPane miPane;
 
     /**
      * Initializes the controller class.
@@ -23,5 +31,10 @@ public class ExclusivaReportaje implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void comprar(MouseEvent event) {
+        BaseController.getInstance().createPage(miPane, "Compra");
+    }
     
 }
