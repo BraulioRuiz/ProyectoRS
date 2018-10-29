@@ -59,7 +59,7 @@ public class CompraController implements Initializable {
     
     @FXML
     void comprar(MouseEvent event) {
-        
+        BaseController.getInstance().Alert("Compra en proceso", true);
     }
     
     

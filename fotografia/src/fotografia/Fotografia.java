@@ -25,7 +25,7 @@ public class Fotografia extends Application{
 
      @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent parent_login = FXMLLoader.load(getClass().getResource("/Vista/Base.fxml"));
+        Parent parent_login = FXMLLoader.load(getClass().getResource("/vista/Fotografia.fxml"));
         Scene login_scene = new Scene(parent_login);
         primaryStage.setScene(login_scene);
        // primaryStage.initStyle(StageStyle.TRANSPARENT);

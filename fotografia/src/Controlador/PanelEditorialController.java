@@ -45,19 +45,19 @@ public class PanelEditorialController implements Initializable {
     
     @FXML
     void openAceptar(MouseEvent event) {
-        MenuAdminController.getInstance().Alert("Se ha Aceptado Correctamete su Editorial", true);
+        BaseController.getInstance().Alert("Se ha Aceptado Correctamete su Editorial", true);
         PanelSuscripcionesController.getInstance().eliminarEditorial(apBaseEditorial);
     }
 
     @FXML
     void openRechazar(MouseEvent event) {
-        MenuAdminController.getInstance().Alert("Se ha Rechazado Correctamete su Editorial", true);
+        BaseController.getInstance().Alert("Se ha Rechazado Correctamete su Editorial", true);
         PanelSuscripcionesController.getInstance().eliminarEditorial(apBaseEditorial);
     }
 
     @FXML
     void openVerMas(MouseEvent event) {
-        MenuAdminController.getInstance().Alert("Falta Perfil xD", false);
+        BaseController.getInstance().Alert("Falta Perfil xD", false);
     }
 
     

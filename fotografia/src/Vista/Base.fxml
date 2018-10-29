@@ -6,26 +6,32 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.BaseController">
+
+<StackPane fx:id="superBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.BaseController">
    <children>
-      <BorderPane prefHeight="620.0" prefWidth="791.0">
-         <top>
-            <Pane prefHeight="77.0" prefWidth="791.0" style="-fx-background-color: #8B0000;" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox layoutX="591.0" layoutY="47.0" prefHeight="32.0" prefWidth="200.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="800.0">
+               <top>
+                  <Pane prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: #8B0000;" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="btnCompra" mnemonicParsing="false" onMouseClicked="#comprar" text="Reportajes" />
-                        <Button mnemonicParsing="false" />
+                        <HBox layoutX="600.0" layoutY="37.0" prefHeight="32.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btnCompra" mnemonicParsing="false" onMouseClicked="#verReportajes" text="Reportajes" />
+                              <Button mnemonicParsing="false" />
+                           </children>
+                        </HBox>
+                        <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="14.0" layoutY="48.0" onMouseClicked="#mostrarInicio" size="30" wrappingWidth="29.85714340209961" />
                      </children>
-                  </HBox>
-                  <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="14.0" layoutY="48.0" onMouseClicked="#mostrarInicio" size="30" wrappingWidth="29.85714340209961" />
-               </children>
-            </Pane>
-         </top>
-         <center>
-            <AnchorPane fx:id="Base" prefHeight="477.0" prefWidth="791.0" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
+                  </Pane>
+               </top>
+               <center>
+                  <AnchorPane fx:id="Base" prefHeight="530.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>

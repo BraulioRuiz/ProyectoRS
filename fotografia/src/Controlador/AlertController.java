@@ -48,7 +48,7 @@ public class AlertController implements Initializable {
 
     @FXML
     private void openAceptar(MouseEvent event) {
-        MenuAdminController.getInstance().eliminarAlert(miPane);
+        BaseController.getInstance().eliminarAlert(miPane);
     }
     
 }

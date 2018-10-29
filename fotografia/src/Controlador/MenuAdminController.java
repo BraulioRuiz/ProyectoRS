@@ -95,37 +95,8 @@ public class MenuAdminController implements Initializable {
         
     }
     
-    private  void setNode2(Node node){
-        
-        stkBase.getChildren().add((Node)node);
-        
-        FadeTransition ft = new FadeTransition(Duration.millis(500));
-        ft.setNode(node);
-        ft.setFromValue(0.1);
-        ft.setToValue(1);
-        ft.setCycleCount(1);
-        ft.setAutoReverse(false);
-        ft.play();
-        
-    }
     
-    public void Alert(String mensaje,boolean estado){ 
-        try {
-            AlertController.estado = estado;
-            AlertController.mensaje = mensaje;
-            apBaseAdmin.setDisable(true);
-            panel = FXMLLoader.load(getClass().getResource("/Vista/Alert.fxml"));
-            AlertController.miPane = panel;
-            setNode2(panel);
-        } catch (IOException ex) {
-            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-             
-    }
-     
-     public void eliminarAlert(AnchorPane pane){
-        stkBase.getChildren().remove(pane);
-        apBaseAdmin.setDisable(false);
-    }
+    
+   
     
 }

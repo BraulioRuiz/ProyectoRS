@@ -60,5 +60,9 @@ public class Reportaje {
         return id_usaurio;
     }
     
+    public static void llenarInfo(){
+    
+    } 
+    
     
 }

@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
@@ -31,6 +32,8 @@ public class BaseController implements Initializable {
    
     @FXML
     private AnchorPane Base;
+    @FXML
+    private StackPane superBase;
     
     private  AnchorPane home;
     private AnchorPane panel;
@@ -50,15 +53,16 @@ public class BaseController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+         createPage("MenuAdmin");
+       
     }    
     @FXML
     void mostrarInicio(MouseEvent event) {
-        
+        createPage("MenuAdmin");
     }
     
     @FXML
-    void comprar(MouseEvent event) {
+    void verReportajes(MouseEvent event) {
         createPage("Reportajes");
     }
     private void createPage(String inter){
@@ -89,6 +93,37 @@ public class BaseController implements Initializable {
         ft.setCycleCount(1);
         ft.setAutoReverse(false);
         ft.play();
+    }
+     private  void setNode2(Node node){
+        
+        superBase.getChildren().add((Node)node);
+        
+        FadeTransition ft = new FadeTransition(Duration.millis(500));
+        ft.setNode(node);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+        
+    }
+      public void Alert(String mensaje,boolean estado){ 
+        try {
+            AlertController.estado = estado;
+            AlertController.mensaje = mensaje;
+            Base.setDisable(true);
+            panel = FXMLLoader.load(getClass().getResource("/Vista/Alert.fxml"));
+            AlertController.miPane = panel;
+            setNode2(panel);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             
+    }
+     
+     public void eliminarAlert(AnchorPane pane){
+        superBase.getChildren().remove(pane);
+        Base.setDisable(false);
     }
    
     
