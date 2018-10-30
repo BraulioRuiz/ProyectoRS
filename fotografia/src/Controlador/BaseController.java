@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import modelo.Usuario;
 
 /**
  * FXML Controller class
@@ -39,7 +40,7 @@ public class BaseController implements Initializable {
     private AnchorPane panel;
     
     @FXML private Button btnCompra;
-    //Usuario baseUsuario = LoginController.usuario;
+    public static Usuario usuario = LoginController.usuario;
     /**
      * Initializes the controller class.
      */
