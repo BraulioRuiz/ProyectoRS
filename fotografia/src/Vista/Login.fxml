@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="467.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.LoginController">
+   <children>
+      <AnchorPane prefHeight="51.0" prefWidth="467.0" style="-fx-background-color: #8B0000;" />
+      <TextField fx:id="txtUsuario" layoutX="148.0" layoutY="204.0" prefHeight="25.0" prefWidth="192.0" promptText="usuario" />
+      <PasswordField fx:id="pwfContraseña" layoutX="148.0" layoutY="258.0" prefHeight="25.0" prefWidth="192.0" promptText="contraseña" />
+      <ImageView fitHeight="130.0" fitWidth="200.0" layoutX="137.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/agencia.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="201.0" layoutY="316.0" mnemonicParsing="false" onAction="#ingresarMenu" onMouseClicked="#btnLogin" prefHeight="32.0" prefWidth="65.0" style="-fx-background-color: grey;" text="Entre" textFill="WHITE" />
+      <Button layoutX="186.0" layoutY="394.0" mnemonicParsing="false" onAction="#entrarRegistro" onMouseClicked="#Ireditorial" prefHeight="32.0" prefWidth="102.0" style="-fx-background-color: red;" text="Registrarse" textFill="WHITE" />
+   </children>
+</AnchorPane>

@@ -5,6 +5,13 @@
  */
 package objetos;
 
+import Conexion.ConexionMysql;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import modelo.Usuario;
+
 /**
  *
  * @author Pando
@@ -86,9 +93,6 @@ public class usuario {
     public String getPassword() {
         return Password;
     }
-    
-   
-    
     
 }
    

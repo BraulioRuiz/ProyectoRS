@@ -5,50 +5,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="apBaseEditorial" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="107.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.PanelEditorialController">
+<AnchorPane fx:id="apBaseEditorial" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="107.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.PanelEditorialController">
    <children>
-      <Label layoutX="143.0" layoutY="12.0" text="El Paris" textFill="DARKRED">
+      <Label fx:id="lbTitulo" layoutX="143.0" layoutY="12.0" text="El Paris" textFill="DARKRED">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="350.0" layoutY="73.0" text="9612336678" textFill="DARKRED">
+      <Label fx:id="lbTelefono" layoutX="374.0" layoutY="73.0" text="9612336678" textFill="DARKRED">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="143.0" layoutY="42.0" text="elparis52@hotmail.com" textFill="DARKRED">
+      <Label fx:id="lbCorreo" layoutX="143.0" layoutY="42.0" text="elparis52@hotmail.com" textFill="DARKRED">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="144.0" layoutY="73.0" text="Tuxtla Gutierrez" textFill="DARKRED">
+      <Label fx:id="lbCiudad" layoutX="144.0" layoutY="73.0" text="Tuxtla Gutierrez" textFill="DARKRED">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="353.0" layoutY="42.0" text="27/10/2018" textFill="DARKRED">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbAceptar" layoutX="480.0" layoutY="74.0" onMouseClicked="#openAceptar" style="-fx-border-color: #8B0000; -fx-border-width: 0px 0px 2px 0px;" text="Aceptar" textFill="DARKRED">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
-      <Label fx:id="lbRechazar" layoutX="545.0" layoutY="74.0" onMouseClicked="#openRechazar" style="-fx-border-color: #8B0000; -fx-border-width: 0px 0px 2px 0px;" text="Rechazar" textFill="DARKRED">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
-      <Label fx:id="llbVerMas" layoutX="619.0" layoutY="74.0" onMouseClicked="#openVerMas" style="-fx-border-color: #8B0000; -fx-border-width: 0px 0px 2px 0px;" text="Ver más" textFill="DARKRED">
+      <Label fx:id="lbEliminar" layoutX="552.0" layoutY="77.0" onMouseClicked="#eliminarSuscripcion" style="-fx-border-color: #8B0000; -fx-border-width: 0px 0px 2px 0px;" text="Quitar Suscripcion" textFill="DARKRED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

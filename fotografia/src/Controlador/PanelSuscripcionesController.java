@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Conexion.ConexionMysql;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import modelo.Usuario;
 
 /**
  * FXML Controller class
@@ -25,8 +27,9 @@ import javafx.scene.layout.AnchorPane;
  */
 public class PanelSuscripcionesController implements Initializable {
 
-    @FXML
+   @FXML
     private AnchorPane apBaseSuscripciones;
+    
     private AnchorPane panel;
     @FXML
     private ListView<AnchorPane> lvEditoriales;
@@ -35,6 +38,7 @@ public class PanelSuscripcionesController implements Initializable {
     
     private static PanelSuscripcionesController instance;
     
+    
     public PanelSuscripcionesController(){
         instance=this;
     }
@@ -42,6 +46,12 @@ public class PanelSuscripcionesController implements Initializable {
     public static PanelSuscripcionesController getInstance(){
         return instance;
     }
+    
+     //Colecciones
+    private ObservableList<Usuario> editoriales;
+    
+    //Mysql
+    private ConexionMysql conexion;
 
     /**
      * Initializes the controller class.
@@ -49,14 +59,20 @@ public class PanelSuscripcionesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         listaEditoriales = FXCollections.observableArrayList();
+        editoriales=FXCollections.observableArrayList();
+        conexion = new ConexionMysql();
+        conexion.establecerConexion();
+        Usuario.llenarInformacionEditorial(conexion, editoriales);
+        conexion.cerrarConexion();
         llenarEditorial();
     }    
     
     public void llenarEditorial(){
-        for(int i=0;i<4;i++){
+        for(Usuario aux:editoriales){
             panel = new AnchorPane(); 
+            PanelEditorialController.editorial=aux;
             createPage("PanelEditorial");
-            
+            listaEditoriales.add(panel);
         }
         lvEditoriales.setItems(listaEditoriales);
     }

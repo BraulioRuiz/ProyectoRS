@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Conexion.ConexionMysql;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import modelo.Usuario;
 
 /**
  * FXML Controller class
@@ -19,45 +21,60 @@ import javafx.scene.layout.AnchorPane;
  * @author JulioXDDI
  */
 public class PanelEditorialController implements Initializable {
-
-    @FXML
+@FXML
     private AnchorPane apBaseEditorial;
 
     @FXML
-    private Label lbAceptar;
+    private Label lbTitulo;
 
     @FXML
-    private Label lbRechazar;
+    private Label lbTelefono;
 
     @FXML
-    private Label llbVerMas;
+    private Label lbCorreo;
+
+    @FXML
+    private Label lbCiudad;
+
+    @FXML
+    private Label lbEliminar;
     
+    private ConexionMysql conexion;
 
+   
+     private static PanelEditorialController instance;
+    
+    
+    public PanelEditorialController(){
+        instance=this;
+    }
+    
+    public static PanelEditorialController getInstance(){
+        return instance;
+    }
 
-
+    public static Usuario editorial;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       lbTitulo.setText(editorial.getNombre());
+       lbTelefono.setText(String.valueOf(editorial.getTelefono()));
+       lbCorreo.setText(editorial.getCorreo());
+       lbCiudad.setText(editorial.getCiudad());
+       conexion = new ConexionMysql();
     }    
     
+    
     @FXML
-    void openAceptar(MouseEvent event) {
-        BaseController.getInstance().Alert("Se ha Aceptado Correctamete su Editorial", true);
+    public void eliminarSuscripcion(MouseEvent event) {
+        BaseController.getInstance().Alert("Se ha Quitado Suscripción Correctamete", true);
+        conexion.establecerConexion();
+        Usuario.eliminarUsuario(conexion, 0);
+        conexion.cerrarConexion();
         PanelSuscripcionesController.getInstance().eliminarEditorial(apBaseEditorial);
-    }
-
-    @FXML
-    void openRechazar(MouseEvent event) {
-        BaseController.getInstance().Alert("Se ha Rechazado Correctamete su Editorial", true);
-        PanelSuscripcionesController.getInstance().eliminarEditorial(apBaseEditorial);
-    }
-
-    @FXML
-    void openVerMas(MouseEvent event) {
-        BaseController.getInstance().Alert("Falta Perfil xD", false);
     }
 
     

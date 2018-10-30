@@ -30,7 +30,11 @@ public class Usuario {
    int nivel;
    String ciudad;
    int status;
-
+   
+    public Usuario(){
+        
+    }
+   
     public Usuario(int id, String nombre, String apellido_p, String apellido_m, String genero, int telefono, String correo, TipoUsuario tipoUsuario, Equipo equipo, int nivel, String ciudad, int status) {
         this.id = id;
         this.nombre = nombre;
@@ -185,4 +189,92 @@ public class Usuario {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
+     
+      public static int eliminarUsuario(ConexionMysql cn, int id ){
+         String sSQL = "delete from usuarios where id = "+id;
+            
+       try {
+           Statement st = cn.getConexion().createStatement();
+            int rs = st.executeUpdate(sSQL);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+     }
+      
+      public static String acceder(ConexionMysql cn,String email_Usuario){
+        String contraseña = null;
+        String sSQL = "select contraseña from login A inner join usuarios B"
+                + " on (A.id_Usuario = B.id) where correo = '"+email_Usuario+"' or "
+                + "nickname = '"+email_Usuario+"'";
+
+        try {  
+            Statement st = cn.getConexion().createStatement();
+            ResultSet rs = st.executeQuery(sSQL);
+            while(rs.next()){
+                contraseña = rs.getString("contraseña");
+            }
+            return contraseña;
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            return contraseña = null;
+        }
+    }
+      
+    public static Usuario BuscarUsuario(ConexionMysql cn,String usuario){
+            //ObservableList lista2 = FXCollections.observableArrayList();
+        String sSQL = "select B.nombre from usuarios A inner join tipousuarios B "
+                + "on (A.id_TipoUsuario = B.id) where A.nombre = '"+usuario+"'";
+        Usuario user=null;
+       try {
+           Statement st1 = cn.getConexion().createStatement();
+            ResultSet rs1 = st1.executeQuery(sSQL);
+            
+            while(rs1.next()){
+               if(rs1.getString("nombre").equals("Editorial")){
+                sSQL = "select A.id, A.nombre,A.telefono,A.correo,A.nivel,B.Id,A.ciudad,A.status,B.Nombre " +
+                "from usuarios A inner join tipousuarios B on (A.id_TipoUsuario = B.id)  where A.nombre = '"+usuario+"'";
+                Statement st = cn.getConexion().createStatement();
+                ResultSet rs = st.executeQuery(sSQL);
+                
+                while(rs.next()){
+                     user = new Usuario(rs.getInt("id"),rs.getString("nombre"),
+                            null,null,null,rs.getInt("telefono"),
+                            rs.getString("correo"),new TipoUsuario(rs.getInt("ID"),rs.getString("Nombre")),
+                            new Equipo(0,null,null),
+                            rs.getInt("nivel"),rs.getString("ciudad"),rs.getInt("status"));
+                }
+
+               
+                
+               }else if(rs1.getString("nombre").equals("Fotografo")){
+                   sSQL = "select A.id, A.nombre,A.apellido_p,A.apellido_m,A.genero,A.telefono,A.correo,A.nivel,"
+                           + "B.Id,C.ID,A.ciudad,A.status,B.Nombre,C.NOmbre,C.calidad from usuarios A inner "
+                           + "join tipousuarios B on (A.id_TipoUsuario = B.id) inner join Equipo C "
+                           + "on (A.id_Equipo = C.id) where A.nombre = '"+usuario+"'";
+                Statement st = cn.getConexion().createStatement();
+                ResultSet rs = st.executeQuery(sSQL);
+                
+                 while(rs.next()){
+                     user = new Usuario(rs.getInt("id"),rs.getString("nombre"),
+                            rs.getString("apellido_p"),rs.getString("apellido_m"),rs.getString("genero"),rs.getInt("telefono"),
+                            rs.getString("correo"),new TipoUsuario(rs.getInt("ID"),rs.getString("Nombre")),
+                            new Equipo(rs.getInt("ID"),rs.getString("NOmbre"),rs.getString("calidad")),
+                            rs.getInt("nivel"),rs.getString("ciudad"),rs.getInt("status"));
+                }
+                
+               }else{     
+                    user = new Usuario();
+                    user.setNombre(rs1.getString("nombre"));
+               }
+            }
+                
+           return user;
+       } catch (SQLException ex) {
+           Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+           return null;
+       }
+       
+    }   
 }
