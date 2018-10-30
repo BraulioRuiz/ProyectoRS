@@ -7,11 +7,15 @@ package Controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import modelo.Reportaje;
 
 /**
  * FXML Controller class
@@ -23,7 +27,13 @@ public class ReportajesController implements Initializable {
     @FXML
     private TextField labelTituloReportaje;
     public static AnchorPane miPane;
-
+    
+    
+    @FXML
+    private ListView<Pane> listaReportajes;
+    
+    private ObservableList<Pane> PaneReportajes;
+    public static ObservableList<Reportaje> reportajes;
     /**
      * Initializes the controller class.
      */

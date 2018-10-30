@@ -55,7 +55,10 @@ public class CompraController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    }    
+    }  
+    public void generarVaucher(){
+    
+    }
     
     @FXML
     void comprar(MouseEvent event) {

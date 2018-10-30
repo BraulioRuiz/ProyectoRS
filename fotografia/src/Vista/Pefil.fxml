@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.PefilController">
+   <children>
+      <Label layoutX="26.0" layoutY="38.0" text="Perfil Usaurio">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+      </Label>
+      <Pane layoutX="14.0" layoutY="96.0" prefHeight="420.0" prefWidth="750.0" style="-fx-background-color: #8B0000;">
+         <children>
+            <TextField fx:id="txtNombre" layoutX="174.0" layoutY="59.0" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="nombre" />
+            <TextField fx:id="txtCorreo" layoutX="174.0" layoutY="104.0" prefHeight="31.0" prefWidth="322.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="correo" />
+            <TextField fx:id="txtTelefono" layoutX="174.0" layoutY="146.0" prefHeight="31.0" prefWidth="322.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="Telefono" />
+            <TextField fx:id="txtGenero" layoutX="174.0" layoutY="195.0" prefHeight="31.0" prefWidth="322.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="Genero" />
+            <TextField fx:id="txtApellidoP" layoutX="319.0" layoutY="59.0" prefHeight="31.0" prefWidth="177.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="Apellido P" />
+            <TextField fx:id="txtApellidoM" layoutX="515.0" layoutY="59.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="Apellido M" />
+            <TextField fx:id="txtCiudad" layoutX="174.0" layoutY="243.0" prefHeight="31.0" prefWidth="322.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="Ciudad" />
+            <TextField fx:id="txtNivel" layoutX="174.0" layoutY="335.0" prefHeight="31.0" prefWidth="322.0" style="-fx-background-color: transparent; -fx-text-fill: #ffffff;" text="Nivel" />
+            <Label layoutX="43.0" layoutY="64.0" text="Nombre:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
+            <Label layoutX="43.0" layoutY="200.0" text="Genero:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
+            <Label layoutX="43.0" layoutY="151.0" text="Telefono:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
+            <Label layoutX="43.0" layoutY="109.0" text="Correo:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
+            <Label layoutX="43.0" layoutY="248.0" text="Ciudad:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
+            <Label layoutX="43.0" layoutY="340.0" text="Nivel:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font></Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

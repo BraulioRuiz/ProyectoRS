@@ -84,8 +84,12 @@
                   <Font name="Arial Rounded MT Bold" size="18.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <TextField fx:id="txtGenero" layoutX="203.0" layoutY="209.0" prefWidth="211.0" />
             <ComboBox fx:id="cboEquipo" layoutX="199.0" layoutY="319.0" prefHeight="25.0" prefWidth="211.0" />
+=======
+            <TextField fx:id="genero" layoutX="203.0" layoutY="209.0" prefWidth="211.0" />
+>>>>>>> 7ca9c02453f92d4a8e6918a0140eac158454cc2c
          </children>
       </AnchorPane>
     </children>
