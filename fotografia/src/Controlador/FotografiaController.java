@@ -50,15 +50,10 @@ public class FotografiaController implements Initializable {
         private Alert warning = new Alert(Alert.AlertType.INFORMATION);
 
     @FXML
-    private TextField usuario;
-    @FXML
-    private PasswordField contraseña;
-    @FXML
     private AnchorPane Registro;
     @FXML
     private AnchorPane editorial2;
     private AnchorPane Edit;
-    @FXML
     private AnchorPane editorial;
     @FXML
     private TextField nombre;
@@ -76,8 +71,15 @@ public class FotografiaController implements Initializable {
     private TextField id_TipoUsuario;
     @FXML
     private TextField ciudad;
-    
     @FXML
+    private TextField txtNombre;
+    @FXML
+    private TextField txtCorreo;
+    @FXML
+    private TextField txtTelefono;
+    @FXML
+    private TextField txtCiudad;
+    
     public void Ireditorial(){
         editorial2.toFront();
     }
@@ -94,7 +96,6 @@ public class FotografiaController implements Initializable {
             Logger.getLogger(FotografiaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    @FXML
     void btnLogin(MouseEvent event) {
         try {
             Parent menu_parent = FXMLLoader.load(getClass().getResource("/Vista/Base.fxml"));

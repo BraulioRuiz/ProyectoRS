@@ -6,6 +6,7 @@
 package modelo;
 
 import Conexion.ConexionMysql;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -275,6 +276,34 @@ public class Usuario {
            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
            return null;
        }
-       
     }   
+    
+    public int guardarInformacion(ConexionMysql cn){
+        String sSQL = "INSERT INTO usuarios(nombre,apellido_p,apellido_m,genero,"
+                + "telefono,correo,id_TipoUsuario,id_Equipo,nivel,ciudad,status) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            
+        try {  
+            PreparedStatement pst = cn.getConexion().prepareStatement(sSQL);
+            pst.setString(1,nombre);
+            pst.setString(2,apellido_p);
+            pst.setString(3,apellido_m);
+            pst.setString(4,genero);
+            pst.setInt(5,telefono);
+            pst.setString(6,correo);
+            pst.setInt(7,tipoUsuario.getId());
+            pst.setInt(8,equipo.getId());
+            pst.setInt(9,nivel);
+            pst.setString(10,ciudad);
+            pst.setInt(11,status);
+            
+            
+            return pst.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }  
+    
+     
 }

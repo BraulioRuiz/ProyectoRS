@@ -66,7 +66,7 @@ public class LoginController implements Initializable {
     @FXML
     private void entrarRegistro(ActionEvent event) {
          try {
-            Parent menu_parent = FXMLLoader.load(getClass().getResource("/Vista/Registro.fxml"));
+            Parent menu_parent = FXMLLoader.load(getClass().getResource("/Vista/RegistroEditorial.fxml"));
             Scene menu_scene = new Scene(menu_parent);
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.hide();
