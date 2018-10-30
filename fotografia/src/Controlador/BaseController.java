@@ -61,6 +61,10 @@ public class BaseController implements Initializable {
     void mostrarInicio(MouseEvent event) {
         createPage("MenuAdmin");
     }
+     @FXML
+    void mostrarPerfil(MouseEvent event) {
+        createPage("Pefil");
+    }
     
     @FXML
     void verReportajes(MouseEvent event) {

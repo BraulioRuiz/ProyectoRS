@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <StackPane fx:id="superBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.BaseController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
@@ -20,10 +19,10 @@
                         <HBox layoutX="600.0" layoutY="37.0" prefHeight="32.0" prefWidth="200.0">
                            <children>
                               <Button fx:id="btnCompra" mnemonicParsing="false" onMouseClicked="#verReportajes" text="Reportajes" />
-                              <Button mnemonicParsing="false" />
                            </children>
                         </HBox>
                         <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="14.0" layoutY="48.0" onMouseClicked="#mostrarInicio" size="30" wrappingWidth="29.85714340209961" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="75.0" layoutY="48.0" onMouseClicked="#mostrarPerfil" size="30" wrappingWidth="29.85714340209961" />
                      </children>
                   </Pane>
                </top>

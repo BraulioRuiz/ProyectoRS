@@ -40,12 +40,13 @@ public class PefilController implements Initializable {
     private TextField txtNivel;
     
     private ConexionMysql conexion;    
-    public Usuario usuario= BaseController.usuario;
+    public static Usuario  usuario= LoginController.usuario;
     /**
      * Initializes the controller class.
+     * @param url
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) {       
         llenarPerfil();
     }    
     

@@ -12,9 +12,9 @@ import java.util.logging.Logger;
  */
 public class ConexionMysql {
     private Connection connection;
-    private String url = "jdbc:Mysql://localhost/sistemafotografias";
+    private String url = "jdbc:Mysql://localhost/sistema_fotografia";
     private String user = "root";
-    private String pass = "xddi";
+    private String pass = "";
     
     
     //Conectar Base de Datos

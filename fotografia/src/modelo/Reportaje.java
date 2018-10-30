@@ -9,7 +9,7 @@ import Conexion.ConexionMysql;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
+import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
@@ -25,12 +25,13 @@ public class Reportaje {
     private int precio;
     private int numFotos;
     private Date fecha;
-    private int id_Tematica;
-    private int id_usaurio;
+    private int id_Tematica;    
+    private Usuario fotografo;
+    
     
     public Reportaje(int id, String titulo, String descripcion,
             int precio, int numFotos, Date fecha, int id_Tematica,
-            int id_usaurio){
+            Usuario fotografo){
     this.id=id;
     this.titulo=titulo;
     this.descripcion=descripcion;
@@ -38,7 +39,7 @@ public class Reportaje {
     this.numFotos=numFotos;
     this.fecha=fecha;
     this.id_Tematica=id_Tematica;
-    this.id_usaurio=id_usaurio;
+    this.fotografo=fotografo;
     }
     public Reportaje(){
     }
@@ -63,35 +64,35 @@ public class Reportaje {
     public int getIdTematica(){
      return id_Tematica;
     }
-    public int getIdUsuario(){
-        return id_usaurio;
+    public Usuario getIdUsuario(){
+        return fotografo;
     }
     
-    public static void llenarInfo(ConexionMysql cn,ObservableList<Reportaje> lista){
-        String sSQL ="use sistema_fotografia;\n" +
-                        "SELECT r.id, r.titulo, r.descripcion, r.precio, r.numFotos, r.fecha, r.id_Tematica, r.id_usuario,\n" +
-                        "t.id, t.nombre, \n" +
-                        "u.id, u.nombre, u.apellido_p, u.apellido_m, u.genero, u.telefono, u.correo\n" +
-                        "u.ciudad, u.nivel,u.status "+
-                        "FROM reportajes r \n" +
-                        "inner join tematicas t\n" +
-                        "on r.id_tematica = t.id\n" +
-                        "inner join usuarios u\n" +
+    public static void llenarInformacion(ConexionMysql cn,ObservableList<Reportaje> lista){
+        String sSQL ="SELECT r.id, r.titulo, r.descripcion, r.precio, r.numFotos, r.fecha, r.id_Tematica, r.id_usuario," +
+                        "t.id, t.nombre, " +
+                        "u.id, u.nombre, u.apellido_p, u.apellido_m, u.genero, u.telefono, u.correo, " +
+                        "u.id_TipoUsuario, u.id_Equipo , u.nivel, u.ciudad,u.status "+
+                        "FROM reportajes r " +
+                        "inner join tematicas t " +
+                        "on r.id_tematica = t.id " +
+                        "inner join usuarios u " +
                         "on r.id_usuario = u.id";
         try {  
             Statement st = cn.getConexion().createStatement();
             ResultSet rs = st.executeQuery(sSQL);
-            while(rs.next()){
+            while(rs.next()){                
                 Usuario a = new Usuario(rs.getInt("u.id"),rs.getString("u.nombre"),
-                        rs.getString(" u.apellido_p"),rs.getString(" u.apellido_m"),
+                        rs.getString("u.apellido_p"),rs.getString("u.apellido_m"),
                         rs.getString("u.genero"),rs.getInt("u.telefono"),
-                        rs.getString("u.correo"),new Carrera(rs.getInt("idCarrera"),
-                                                             rs.getString("nombreCarrera")),
-                        rs.getString("contraseña"),rs.getString("nick"));
+                        rs.getString("u.correo"), new TipoUsuario(rs.getInt("u.id_TipoUsuario"),
+                         "prueba"), new Equipo(rs.getInt("u.id_Equipo"),"nombre", "calidad"),
+                         rs.getInt("u.nivel"),rs.getString("u.ciudad"), rs.getInt("u.status"));
                 
-                lista.add(new Proyecto(rs.getInt("idProyecto"),rs.getString("titulo"),
-                        rs.getString("descripcion"),rs.getString("requisitos"),
-                        rs.getInt("numIntegrantes"),rs.getString("estado"),a));
+                lista.add(new Reportaje(rs.getInt("r.id"),rs.getString("r.titulo"),
+                        rs.getString("r.descripcion"),rs.getInt("r.precio"),
+                        rs.getInt("r.numFotos"),rs.getDate("r.fecha"), rs.getInt("r.id_Tematica"),
+                        a));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);    
