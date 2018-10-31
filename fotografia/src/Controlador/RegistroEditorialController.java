@@ -6,8 +6,12 @@
 package Controlador;
 
 import Conexion.ConexionMysql;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +23,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import modelo.Equipo;
 import modelo.TipoUsuario;
 import modelo.Usuario;
@@ -33,7 +39,12 @@ import modelo.Login;
 public class RegistroEditorialController implements Initializable {
 
    @FXML
-    private AnchorPane Registro;
+    private StackPane stkBase;
+
+    @FXML
+    private AnchorPane apBase;
+    
+    private AnchorPane home;
 
     @FXML
     private TextField txtNombre;
@@ -53,8 +64,16 @@ public class RegistroEditorialController implements Initializable {
     @FXML
     private PasswordField pass2;
 
-    
     ConexionMysql conexion;
+    
+    private static RegistroEditorialController instance;
+    
+    public RegistroEditorialController(){
+        instance=this;
+    }
+    public static RegistroEditorialController getInstance(){
+        return instance;
+    }
 
     /**
      * Initializes the controller class.
@@ -85,10 +104,13 @@ public class RegistroEditorialController implements Initializable {
                             new Equipo(1,"",""),
                             0,txtCiudad.getText(),1, pass1.getText());
                             
-                        //  System.out.println(a.getNombre());
+                           
+                            
+                          System.out.println(a.getNombre());
                             
                                int r = a.guardarInformacion(conexion);
-                               Usuario b = Usuario.BuscarUsuario(conexion, txtCorreo.getText());
+                               
+                       //        Usuario b = Usuario.BuscarUsuario(conexion, txtCorreo.getText());
                               
                             
                                /*Login c = new Login(0,pass1.getText(),"",b.getId());
@@ -112,22 +134,54 @@ public class RegistroEditorialController implements Initializable {
 
                         }else{
                     //        alert("contraseña");
-                        System.out.println("contraseña");
+                        RegistroEditorialController.getInstance().Alert("Contraseña Incorrecta", false);
+                      //  System.out.println("contraseña");
                         }
                     }else{
-                 //       alert("usuario");
-                 System.out.println("usuario");
+                  RegistroEditorialController.getInstance().Alert("Este Usuario Ya Esta Registrado", false);
+               //  System.out.println("usuario");
                     }
                 }else{
-              //      
-              System.out.println("email");
+                RegistroEditorialController.getInstance().Alert("Este Usuario Ya Esta Registrado", false);     
+          //    System.out.println("email");
                 }
             }catch(Exception e){
      //           alert("campos");
-     System.out.println(e);
+                RegistroEditorialController.getInstance().Alert("Llenar todos los campos", false);
             }
         }    
     }
     
-    
+    private  void setNode2(Node node){
+        
+        stkBase.getChildren().add((Node)node);
+        
+        FadeTransition ft = new FadeTransition(Duration.millis(500));
+        ft.setNode(node);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+        
+    }
+      public void Alert(String mensaje,boolean estado){ 
+        try {
+            AlertController.estado = estado;
+            AlertController.mensaje = mensaje;
+            AlertController.vista = "registroEditorial";
+            apBase.setDisable(true);
+            home = FXMLLoader.load(getClass().getResource("/Vista/Alert.fxml"));
+            AlertController.miPane = home;
+            setNode2(home);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             
+    }
+     
+     public void eliminarAlert(AnchorPane pane){
+        stkBase.getChildren().remove(pane);
+        apBase.setDisable(false);
+    }
 }

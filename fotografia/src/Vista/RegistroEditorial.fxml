@@ -7,27 +7,33 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane fx:id="Registro" prefHeight="500.0" prefWidth="468.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.RegistroEditorialController">
+
+<StackPane fx:id="stkBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.RegistroEditorialController">
    <children>
-      <AnchorPane prefHeight="54.0" prefWidth="468.0" style="-fx-background-color: #8B0000;" />
-      <Button layoutX="197.0" layoutY="454.0" mnemonicParsing="false" onAction="#registrarInfo" text="Registrarse" />
-      <Label layoutX="85.0" layoutY="176.0" text="Nombre:" />
-      <Label layoutX="93.0" layoutY="218.0" text="Correo:" />
-      <Label layoutX="85.0" layoutY="265.0" text="Telefono" />
-      <TextField fx:id="txtNombre" layoutX="146.0" layoutY="176.0" prefHeight="25.0" prefWidth="239.0" />
-      <TextField fx:id="txtCorreo" layoutX="146.0" layoutY="218.0" prefHeight="25.0" prefWidth="239.0" />
-      <TextField fx:id="txtTelefono" layoutX="146.0" layoutY="265.0" prefHeight="25.0" prefWidth="239.0" />
-      <TextField fx:id="txtCiudad" layoutX="146.0" layoutY="308.0" prefHeight="25.0" prefWidth="239.0" />
-      <Label layoutX="89.0" layoutY="308.0" text="Ciudad:" />
-      <ImageView fitHeight="90.0" fitWidth="170.0" layoutX="179.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/agencia.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="74.0" layoutY="358.0" text="Contraseña:" />
-      <Label layoutX="33.0" layoutY="397.0" text="Repetir Contraseña:" />
-      <PasswordField fx:id="pass1" layoutX="146.0" layoutY="354.0" prefHeight="25.0" prefWidth="239.0" />
-      <PasswordField fx:id="pass2" layoutX="146.0" layoutY="393.0" prefHeight="25.0" prefWidth="239.0" />
+      <AnchorPane fx:id="apBase" prefHeight="500.0" prefWidth="460.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane prefHeight="54.0" prefWidth="468.0" style="-fx-background-color: #8B0000;" />
+            <Button layoutX="197.0" layoutY="454.0" mnemonicParsing="false" onAction="#registrarInfo" text="Registrarse" />
+            <Label layoutX="85.0" layoutY="176.0" text="Nombre:" />
+            <Label layoutX="93.0" layoutY="218.0" text="Correo:" />
+            <Label layoutX="85.0" layoutY="265.0" text="Telefono" />
+            <TextField fx:id="txtNombre" layoutX="146.0" layoutY="176.0" prefHeight="25.0" prefWidth="239.0" />
+            <TextField fx:id="txtCorreo" layoutX="146.0" layoutY="218.0" prefHeight="25.0" prefWidth="239.0" />
+            <TextField fx:id="txtTelefono" layoutX="146.0" layoutY="265.0" prefHeight="25.0" prefWidth="239.0" />
+            <TextField fx:id="txtCiudad" layoutX="146.0" layoutY="308.0" prefHeight="25.0" prefWidth="239.0" />
+            <Label layoutX="89.0" layoutY="308.0" text="Ciudad:" />
+            <ImageView fitHeight="90.0" fitWidth="170.0" layoutX="179.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/agencia.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="74.0" layoutY="358.0" text="Contraseña:" />
+            <Label layoutX="33.0" layoutY="397.0" text="Repetir Contraseña:" />
+            <PasswordField fx:id="pass1" layoutX="146.0" layoutY="354.0" prefHeight="25.0" prefWidth="239.0" />
+            <PasswordField fx:id="pass2" layoutX="146.0" layoutY="393.0" prefHeight="25.0" prefWidth="239.0" />
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>

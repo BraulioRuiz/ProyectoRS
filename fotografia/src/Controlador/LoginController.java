@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -22,7 +23,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import modelo.Usuario;
 
 /**
@@ -36,10 +40,27 @@ public class LoginController implements Initializable {
     private TextField txtUsuario;
     @FXML
     private PasswordField pwfContraseña;
+     @FXML
+    private StackPane stkBase;
+
+    @FXML
+    private AnchorPane apBase;
+    
+    private AnchorPane home;
     
     private ConexionMysql conexion;
     
     public static Usuario usuario;
+    
+    private static LoginController instance;
+    
+    public LoginController(){
+        instance=this;
+    }
+    public static LoginController getInstance(){
+        return instance;
+    }
+    
 
     /**
      * Initializes the controller class.
@@ -106,20 +127,22 @@ public class LoginController implements Initializable {
                             conexion.cerrarConexion();
                            
                         }else{
-                     
+                             LoginController.getInstance().Alert("Contraseña Incorrecta", false);
                        //     lblError.setVisible(true);
                             pwfContraseña.setText("");
                         }
                     }else{
-                  
+                       // LoginController.getInstance().Alert("Por Favor Escribir Una Contrasña", false);
                      //   lblError.setVisible(true);
                         pwfContraseña.setText("");
                     }
                 }else{
+                    LoginController.getInstance().Alert("No ha ingresado contraseña", false);
               //      lblErrorPass.setText("No ha ingresado contraseña");
                 //    lblErrorPass.setVisible(true);
                 }
             }else{
+                LoginController.getInstance().Alert("No ha ingresado usuario", false);
            //     lblErrorUsuario.setText("No ha ingresado usuario");
              //   lblErrorUsuario.setVisible(true);
             }
@@ -127,6 +150,39 @@ public class LoginController implements Initializable {
         }catch(Exception e){
           //  lblError.setVisible(true);
         }
+    }
+    
+    private  void setNode2(Node node){
+        
+        stkBase.getChildren().add((Node)node);
+        
+        FadeTransition ft = new FadeTransition(Duration.millis(500));
+        ft.setNode(node);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+        
+    }
+      public void Alert(String mensaje,boolean estado){ 
+        try {
+            AlertController.estado = estado;
+            AlertController.mensaje = mensaje;
+            AlertController.vista = "login";
+            apBase.setDisable(true);
+            home = FXMLLoader.load(getClass().getResource("/Vista/Alert.fxml"));
+            AlertController.miPane = home;
+            setNode2(home);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             
+    }
+     
+     public void eliminarAlert(AnchorPane pane){
+        stkBase.getChildren().remove(pane);
+        apBase.setDisable(false);
     }
     
 }

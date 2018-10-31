@@ -99,7 +99,8 @@ public class BaseController implements Initializable {
         ft.setAutoReverse(false);
         ft.play();
     }
-     private  void setNode2(Node node){
+    
+    private  void setNode2(Node node){
         
         superBase.getChildren().add((Node)node);
         

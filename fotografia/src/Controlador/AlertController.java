@@ -30,6 +30,7 @@ public class AlertController implements Initializable {
     private Button btnGuardar;
     
     public static String mensaje;
+    public static String vista;
     public static boolean estado;
     public static AnchorPane miPane;
     @FXML
@@ -48,7 +49,15 @@ public class AlertController implements Initializable {
 
     @FXML
     private void openAceptar(MouseEvent event) {
-        BaseController.getInstance().eliminarAlert(miPane);
+       
+        if(vista.equals("login")){
+            LoginController.getInstance().eliminarAlert(miPane);
+        }else if(vista.equals("registroEditorial")){
+            RegistroEditorialController.getInstance().eliminarAlert(miPane);
+        }else{
+             BaseController.getInstance().eliminarAlert(miPane);
+        }
+       
     }
     
 }
