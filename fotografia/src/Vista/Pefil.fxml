@@ -48,8 +48,8 @@
                <font>
                   <Font name="System Bold" size="19.0" />
                </font></Label>
+            <Button fx:id="btnGuardar" layoutX="657.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#guardar" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #000000;" text="Guardar" textFill="WHITE" />
             <Button fx:id="btnEditar" layoutX="657.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#editar" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #000000;" text="Editar" textFill="WHITE" />
-            <Button fx:id="btnGuardar" layoutX="657.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#guardar" prefHeight="31.0" prefWidth="79.0" text="Button" />
          </children>
       </Pane>
    </children>
