@@ -3,21 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/RegistroFotografoController.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/Login.java</file>
             <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/PanelEditorialController.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/FotografiaController.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/RegistroEditorialController.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/AlertController.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/modelo/Equipo.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/modelo/Reportaje.java</file>
             <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/PanelSuscripcionesController.java</file>
+            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/BaseController.java</file>
             <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/modelo/Usuario.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/modelo/TipoUsuario.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/fotografia/Fotografia.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/modelo/Login.java</file>
+            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/PefilController.java</file>
             <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Controlador/LoginController.java</file>
-            <file>file:/C:/Users/JulioXDDI/Documents/GitHub/ProyectoRSP/fotografia/src/Conexion/ConexionMysql.java</file>
         </group>
     </open-files>
 </project-private>

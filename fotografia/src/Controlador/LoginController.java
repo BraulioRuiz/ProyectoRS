@@ -51,6 +51,12 @@ public class LoginController implements Initializable {
     private ConexionMysql conexion;
     
     public static Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    
+    
     
     private static LoginController instance;
     
@@ -103,6 +109,11 @@ public class LoginController implements Initializable {
                     if(contraseña != null){
                         if(contraseña.equals(pwfContraseña.getText())){
                             
+                            conexion.establecerConexion();
+                            usuario = Usuario.BuscarUsuario(conexion, txtUsuario.getText());
+                            
+                            conexion.cerrarConexion();
+                            
                             Parent menu_parent = FXMLLoader.load(getClass().getResource
                             ("/Vista/Base.fxml"));
                             
@@ -115,10 +126,10 @@ public class LoginController implements Initializable {
                             app_stage.setScene(menu_scene);
                              
                             app_stage.show();
+                          
+                            
+                            BaseController.getInstance().setUsuario(usuario);
                            
-                            conexion.establecerConexion();
-                            usuario = Usuario.BuscarUsuario(conexion, txtUsuario.getText());
-                            conexion.cerrarConexion();
                            
                         }else{
                             LoginController.getInstance().Alert("Contraseña Incorrecta", false);

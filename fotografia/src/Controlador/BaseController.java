@@ -43,26 +43,47 @@ public class BaseController implements Initializable {
     private AnchorPane panel;
     
     @FXML private Button btnCompra;
-    public static Usuario usuario = LoginController.usuario;
-    /**
-     * Initializes the controller class.
-     */
+    
+    private Usuario usuario;
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    
+    
+    
     private static BaseController instance;
     
     public BaseController(){
-        instance=this;
+        instance = this;
+        usuario = LoginController.usuario;
     }
     public static BaseController getInstance(){
         return instance;
     }
+    /**
+     * Initializes the controller class.
+     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         createPage("MenuAdmin");
+         
+        if(usuario.getNombre().equals("admin")){
+            createPage("MenuAdmin");
+        }else{
+            createPage("Reportajes");
+        }
+         
        
     }    
     @FXML
     void mostrarInicio(MouseEvent event) {
-        createPage("MenuAdmin");
+        if(usuario.getNombre().equals("admin")){
+            createPage("MenuAdmin");
+        }else{
+            createPage("Reportajes");
+        }
     }
      @FXML
     void mostrarPerfil(MouseEvent event) {

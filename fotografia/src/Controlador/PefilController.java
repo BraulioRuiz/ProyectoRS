@@ -40,7 +40,7 @@ public class PefilController implements Initializable {
     private TextField txtNivel;
     
     private ConexionMysql conexion;    
-    public static Usuario  usuario= LoginController.usuario;
+    public static Usuario  usuario= LoginController.getInstance().getUsuario();
     /**
      * Initializes the controller class.
      * @param url
