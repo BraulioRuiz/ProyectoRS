@@ -32,7 +32,7 @@ public class PanelReportajeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        labelTituloReportaje.setText(reportaje.getTitulo());
     }    
 
     @FXML

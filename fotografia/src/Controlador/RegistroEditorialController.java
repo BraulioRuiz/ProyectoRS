@@ -83,21 +83,20 @@ public class RegistroEditorialController implements Initializable {
                             "","","",Integer.valueOf(txtTelefono.getText()),
                             txtCorreo.getText(),new TipoUsuario(1,"Editorial"),
                             new Equipo(1,"",""),
-                            0,txtCiudad.getText(),1);
+                            0,txtCiudad.getText(),1, pass1.getText());
                             
-                        //    System.out.println(a.getNombre());
+                        //  System.out.println(a.getNombre());
                             
                                int r = a.guardarInformacion(conexion);
                                Usuario b = Usuario.BuscarUsuario(conexion, txtCorreo.getText());
                               
                             
-                               Login c = new Login(0,pass1.getText(),"",b.getId());
-                               c.guardarInfo(conexion);
+                               /*Login c = new Login(0,pass1.getText(),"",b.getId());
+                               c.guardarInfo(conexion);*/
                                 conexion.cerrarConexion();
                                 
                                 
                                 if(r==1){
-                                    System.out.println("Ingresado");
                                     Parent menu_parent;
                                     menu_parent = FXMLLoader.load(getClass().getResource
                                         ("/Vista/Login.fxml"));  

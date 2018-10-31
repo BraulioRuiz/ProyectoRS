@@ -72,7 +72,7 @@ public class Reportaje {
         String sSQL ="SELECT r.id, r.titulo, r.descripcion, r.precio, r.numFotos, r.fecha, r.id_Tematica, r.id_usuario," +
                         "t.id, t.nombre, " +
                         "u.id, u.nombre, u.apellido_p, u.apellido_m, u.genero, u.telefono, u.correo, " +
-                        "u.id_TipoUsuario, u.id_Equipo , u.nivel, u.ciudad,u.status "+
+                        "u.id_TipoUsuario, u.id_Equipo , u.nivel, u.ciudad,u.status, u.contraseña "+
                         "FROM reportajes r " +
                         "inner join tematicas t " +
                         "on r.id_tematica = t.id " +
@@ -87,7 +87,8 @@ public class Reportaje {
                         rs.getString("u.genero"),rs.getInt("u.telefono"),
                         rs.getString("u.correo"), new TipoUsuario(rs.getInt("u.id_TipoUsuario"),
                          "prueba"), new Equipo(rs.getInt("u.id_Equipo"),"nombre", "calidad"),
-                         rs.getInt("u.nivel"),rs.getString("u.ciudad"), rs.getInt("u.status"));
+                         rs.getInt("u.nivel"),rs.getString("u.ciudad"), rs.getInt("u.status"),
+                        rs.getString("u.contraseña"));
                 
                 lista.add(new Reportaje(rs.getInt("r.id"),rs.getString("r.titulo"),
                         rs.getString("r.descripcion"),rs.getInt("r.precio"),
