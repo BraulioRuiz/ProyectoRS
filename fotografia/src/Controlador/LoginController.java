@@ -71,17 +71,11 @@ public class LoginController implements Initializable {
         usuario = null;
     }    
 
-    @FXML
-    private void btnLogin(MouseEvent event) {
-    }
+   
 
     @FXML
     private void ingresarMenu(ActionEvent event) {
         ingresarUsuario(event);
-    }
-
-    @FXML
-    private void Ireditorial(MouseEvent event) {
     }
 
     @FXML
@@ -127,22 +121,22 @@ public class LoginController implements Initializable {
                             conexion.cerrarConexion();
                            
                         }else{
-                             LoginController.getInstance().Alert("Contraseña Incorrecta", false);
+                            LoginController.getInstance().Alert("Contraseña Incorrecta", false);
                        //     lblError.setVisible(true);
                             pwfContraseña.setText("");
                         }
                     }else{
-                       // LoginController.getInstance().Alert("Por Favor Escribir Una Contrasña", false);
+                        LoginController.getInstance().Alert("Este Usuario no Existe", false);
                      //   lblError.setVisible(true);
                         pwfContraseña.setText("");
                     }
                 }else{
-                    LoginController.getInstance().Alert("No ha ingresado contraseña", false);
+                   LoginController.getInstance().Alert("No ha ingresado contraseña", false);
               //      lblErrorPass.setText("No ha ingresado contraseña");
                 //    lblErrorPass.setVisible(true);
                 }
             }else{
-                LoginController.getInstance().Alert("No ha ingresado usuario", false);
+               LoginController.getInstance().Alert("No ha ingresado usuario", false);
            //     lblErrorUsuario.setText("No ha ingresado usuario");
              //   lblErrorUsuario.setVisible(true);
             }
@@ -167,12 +161,12 @@ public class LoginController implements Initializable {
     }
       public void Alert(String mensaje,boolean estado){ 
         try {
-            AlertController.estado = estado;
-            AlertController.mensaje = mensaje;
-            AlertController.vista = "login";
+            Alert2Controller.estado = estado;
+            Alert2Controller.mensaje = mensaje;
+            Alert2Controller.vista = "login";
             apBase.setDisable(true);
-            home = FXMLLoader.load(getClass().getResource("/Vista/Alert.fxml"));
-            AlertController.miPane = home;
+            home = FXMLLoader.load(getClass().getResource("/Vista/Alert2.fxml"));
+            Alert2Controller.miPane = home;
             setNode2(home);
         } catch (IOException ex) {
             Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
@@ -180,7 +174,7 @@ public class LoginController implements Initializable {
              
     }
      
-     public void eliminarAlert(AnchorPane pane){
+    public void eliminarAlert(AnchorPane pane){
         stkBase.getChildren().remove(pane);
         apBase.setDisable(false);
     }

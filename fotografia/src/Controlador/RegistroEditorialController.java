@@ -82,7 +82,24 @@ public class RegistroEditorialController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         conexion = new ConexionMysql();
         
-    }    
+    }  
+    
+    @FXML
+    void cancelar(ActionEvent event) {
+        Parent menu_parent;
+       try {
+           menu_parent = FXMLLoader.load(getClass().getResource  
+                        ("/Vista/Login.fxml"));
+           Scene menu_scene = new Scene(menu_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(menu_scene);
+            app_stage.show();
+       } catch (IOException ex) {
+           Logger.getLogger(RegistroEditorialController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+            
+    }
 
     @FXML
     private void registrarInfo(ActionEvent event) {
@@ -138,7 +155,7 @@ public class RegistroEditorialController implements Initializable {
                       //  System.out.println("contraseña");
                         }
                     }else{
-                  RegistroEditorialController.getInstance().Alert("Este Usuario Ya Esta Registrado", false);
+                        RegistroEditorialController.getInstance().Alert("Este Usuario Ya Esta Registrado", false);
                //  System.out.println("usuario");
                     }
                 }else{
@@ -165,14 +182,14 @@ public class RegistroEditorialController implements Initializable {
         ft.play();
         
     }
-      public void Alert(String mensaje,boolean estado){ 
+     public void Alert(String mensaje,boolean estado){ 
         try {
-            AlertController.estado = estado;
-            AlertController.mensaje = mensaje;
-            AlertController.vista = "registroEditorial";
+            Alert2Controller.estado = estado;
+            Alert2Controller.mensaje = mensaje;
+            Alert2Controller.vista = "registroEditorial";
             apBase.setDisable(true);
-            home = FXMLLoader.load(getClass().getResource("/Vista/Alert.fxml"));
-            AlertController.miPane = home;
+            home = FXMLLoader.load(getClass().getResource("/Vista/Alert2.fxml"));
+            Alert2Controller.miPane = home;
             setNode2(home);
         } catch (IOException ex) {
             Logger.getLogger(MenuAdminController.class.getName()).log(Level.SEVERE, null, ex);
