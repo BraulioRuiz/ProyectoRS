@@ -311,7 +311,8 @@ public class Usuario {
             Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
-    }  
+    } 
+    
     
      
 }
