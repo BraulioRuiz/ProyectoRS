@@ -8,6 +8,7 @@ package Controlador;
 import Conexion.ConexionMysql;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import modelo.Reportaje;
 
 /**
  * FXML Controller class
@@ -48,16 +50,24 @@ public class CompraController implements Initializable {
     private Button btnComprar;
     private ConexionMysql conexion;
     //public static Usuario usuarioLogin= LoginController.usuario;
-    //public static Reportaje reportajecompra=;
+    public static Reportaje reportajecompra= PanelReportajeController.reportaje;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        generarVaucher();
     }  
     public void generarVaucher(){
-    
+        Date fecha = new Date();
+        int numero = (int)(Math.random()*(10000-500+1)+500);
+        int numero2 = (int)(Math.random()*(10000-500+1)+500);
+        textFecha.setText(fecha.toString());
+        txtReferencia.setText(String.valueOf(numero2));
+        txtTotal.setText(String.valueOf(reportajecompra.getPrecio()));
+        txtNombre.setText(reportajecompra.getTitulo());
+        txtConcepto.setText("Compra");
+        txtNumPago.setText(String.valueOf(numero));
     }
     
     @FXML

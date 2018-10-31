@@ -32,11 +32,6 @@ public class MenuAdminController implements Initializable {
     
     private AnchorPane panel;
     
-    @FXML
-    private StackPane stkBase;
-    
-    @FXML
-    private AnchorPane apBase;
 
     private static MenuAdminController instance;
     

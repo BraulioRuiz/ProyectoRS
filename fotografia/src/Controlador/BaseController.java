@@ -15,11 +15,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import modelo.Usuario;
 
@@ -69,6 +72,25 @@ public class BaseController implements Initializable {
     @FXML
     void verReportajes(MouseEvent event) {
         createPage("Reportajes");
+    }
+    void close(MouseEvent event) {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.close();
+    }    
+    @FXML
+    void CerrarSesion(MouseEvent event) {
+        try {
+            this.close(event);
+            Parent menu_parent = FXMLLoader.load(getClass().getResource
+                                    ("/Vista/Login.fxml"));
+            Scene menu_scene = new Scene(menu_parent);
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.hide();
+            app_stage.setScene(menu_scene);
+            app_stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     private void createPage(String inter){
               

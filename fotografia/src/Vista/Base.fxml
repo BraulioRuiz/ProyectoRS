@@ -20,7 +20,7 @@
                <top>
                   <Pane prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: #8B0000;" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox layoutX="619.0" layoutY="37.0" prefHeight="32.0" prefWidth="167.0">
+                        <HBox layoutX="317.0" layoutY="37.0" prefHeight="32.0" prefWidth="167.0">
                            <children>
                               <Button fx:id="btnCompra" mnemonicParsing="false" onMouseClicked="#verReportajes" style="-fx-background-color: #000000;" text="Reportajes" textFill="WHITE">
                                  <effect>
@@ -30,7 +30,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #000000;" text="Usuarios" textFill="WHITE">
+                              <Button fx:id="btn" mnemonicParsing="false" style="-fx-background-color: #000000;" text="Usuarios" textFill="WHITE">
                                  <effect>
                                     <DropShadow />
                                  </effect>
@@ -49,11 +49,16 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </FontAwesomeIconView>
-                        <TextField editable="false" layoutX="569.0" layoutY="2.0" prefHeight="37.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-text-fill: #fff;" text="Opciones de Administrador">
+                        <TextField editable="false" layoutX="295.0" layoutY="-3.0" prefHeight="37.0" prefWidth="217.0" style="-fx-background-color: transparent; -fx-text-fill: #fff;" text="Opciones de Administrador">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </TextField>
+                        <FontAwesomeIconView fill="WHITE" glyphName="UNDO" layoutX="751.0" layoutY="46.0" onMouseClicked="#CerrarSesion" size="35">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIconView>
                      </children>
                   </Pane>
                </top>

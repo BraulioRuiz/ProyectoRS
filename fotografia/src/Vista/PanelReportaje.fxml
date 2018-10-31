@@ -13,6 +13,7 @@
             <Font name="System Bold" size="38.0" />
          </font>
       </TextField>
-      <Button layoutX="639.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#comprar" text="Comprar" />
+      <Button fx:id="btnVerInfo" layoutX="668.0" layoutY="60.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: #FFFAFA;" text="Ver" />
+      <Button layoutX="563.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#comprar" style="-fx-background-color: #FFFAFA;" text="Comprar" />
    </children>
 </AnchorPane>
