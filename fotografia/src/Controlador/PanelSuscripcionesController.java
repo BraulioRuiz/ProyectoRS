@@ -34,7 +34,7 @@ public class PanelSuscripcionesController implements Initializable {
     @FXML
     private ListView<AnchorPane> lvEditoriales;
     
-    private ObservableList<AnchorPane> listaEditoriales;
+    private ObservableList<AnchorPane> PanelEditoriales;
     
     private static PanelSuscripcionesController instance;
     
@@ -58,8 +58,8 @@ public class PanelSuscripcionesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        listaEditoriales = FXCollections.observableArrayList();
-        editoriales=FXCollections.observableArrayList();
+        PanelEditoriales = FXCollections.observableArrayList();
+        editoriales = FXCollections.observableArrayList();
         conexion = new ConexionMysql();
         conexion.establecerConexion();
         Usuario.llenarInformacionEditorial(conexion, editoriales);
@@ -72,9 +72,8 @@ public class PanelSuscripcionesController implements Initializable {
             panel = new AnchorPane(); 
             PanelEditorialController.editorial=aux;
             createPage("PanelEditorial");
-            listaEditoriales.add(panel);
         }
-        lvEditoriales.setItems(listaEditoriales);
+        lvEditoriales.setItems(PanelEditoriales);
     }
     
     
@@ -82,7 +81,7 @@ public class PanelSuscripcionesController implements Initializable {
         
         try {
             panel = FXMLLoader.load(getClass().getResource("/Vista/"+ inter +".fxml"));
-            listaEditoriales.add(panel);
+            PanelEditoriales.add(panel);
         } catch (IOException ex) {
             Logger.getLogger(PanelSuscripcionesController.class.getName()).log(Level.SEVERE, null, ex);
         }

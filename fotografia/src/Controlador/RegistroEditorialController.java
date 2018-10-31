@@ -164,7 +164,7 @@ public class RegistroEditorialController implements Initializable {
                 }
             }catch(Exception e){
      //           alert("campos");
-                RegistroEditorialController.getInstance().Alert("Llenar todos los campos", false);
+                RegistroEditorialController.getInstance().Alert("Llenar todos los campos correctamente", false);
             }
         }    
     }

@@ -52,6 +52,8 @@ public class PanelEditorialController implements Initializable {
     public static PanelEditorialController getInstance(){
         return instance;
     }
+    
+    private Usuario editorialUser;
 
     public static Usuario editorial;
     
@@ -65,6 +67,8 @@ public class PanelEditorialController implements Initializable {
        lbCorreo.setText(editorial.getCorreo());
        lbCiudad.setText(editorial.getCiudad());
        conexion = new ConexionMysql();
+       editorialUser = new Usuario();
+       editorialUser = editorial;
     }    
     
     
@@ -72,7 +76,7 @@ public class PanelEditorialController implements Initializable {
     public void eliminarSuscripcion(MouseEvent event) {
         BaseController.getInstance().Alert("Se ha Quitado Suscripción Correctamete", true);
         conexion.establecerConexion();
-        Usuario.eliminarUsuario(conexion, 0);
+        Usuario.eliminarUsuario(conexion, editorialUser.getId());
         conexion.cerrarConexion();
         PanelSuscripcionesController.getInstance().eliminarEditorial(apBaseEditorial);
     }

@@ -49,14 +49,7 @@ public class AlertController implements Initializable {
 
     @FXML
     private void openAceptar(MouseEvent event) {
-       
-        if(vista.equals("login")){
-            LoginController.getInstance().eliminarAlert(miPane);
-        }else if(vista.equals("registroEditorial")){
-            RegistroEditorialController.getInstance().eliminarAlert(miPane);
-        }else{
-             BaseController.getInstance().eliminarAlert(miPane);
-        }
+       BaseController.getInstance().eliminarAlert(miPane);
        
     }
     
