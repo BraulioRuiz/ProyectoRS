@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <StackPane fx:id="superBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controlador.BaseController">
    <children>
@@ -16,18 +20,45 @@
                <top>
                   <Pane prefHeight="70.0" prefWidth="800.0" style="-fx-background-color: #8B0000;" BorderPane.alignment="CENTER">
                      <children>
-                        <HBox layoutX="600.0" layoutY="37.0" prefHeight="32.0" prefWidth="200.0">
+                        <HBox layoutX="619.0" layoutY="37.0" prefHeight="32.0" prefWidth="167.0">
                            <children>
-                              <Button fx:id="btnCompra" mnemonicParsing="false" onMouseClicked="#verReportajes" text="Reportajes" />
+                              <Button fx:id="btnCompra" mnemonicParsing="false" onMouseClicked="#verReportajes" style="-fx-background-color: #000000;" text="Reportajes" textFill="WHITE">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button mnemonicParsing="false" style="-fx-background-color: #000000;" text="Usuarios" textFill="WHITE">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                         </HBox>
-                        <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="14.0" layoutY="48.0" onMouseClicked="#mostrarInicio" size="30" wrappingWidth="29.85714340209961" />
-                        <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="75.0" layoutY="48.0" onMouseClicked="#mostrarPerfil" size="30" wrappingWidth="29.85714340209961" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="HOME" layoutX="14.0" layoutY="50.0" onMouseClicked="#mostrarInicio" size="40" wrappingWidth="29.85714340209961">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></FontAwesomeIconView>
+                        <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="78.0" layoutY="47.0" onMouseClicked="#mostrarPerfil" size="35" wrappingWidth="29.85714340209961">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </FontAwesomeIconView>
+                        <TextField editable="false" layoutX="569.0" layoutY="2.0" prefHeight="37.0" prefWidth="223.0" style="-fx-background-color: transparent; -fx-text-fill: #fff;" text="Opciones de Administrador">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </Pane>
                </top>
                <center>
-                  <AnchorPane fx:id="Base" prefHeight="530.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+                  <AnchorPane fx:id="Base" prefHeight="530.0" prefWidth="800.0" style="-fx-background-color: #FFF5EE;" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </children>
